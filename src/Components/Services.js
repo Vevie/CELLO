@@ -46,7 +46,7 @@ const cardDetails =[
 const Services = () => {
 
     return(
-        <div id="services">
+        <div id="services" className="pt-2 pt-lg-5">
 
         <Container >
             <h6 className="mt-5 custom-color text-center">Our Services</h6>

@@ -10,11 +10,16 @@ body{
 nav.navbar{
     height: 74px;
 
+    @media (max-width: 768px ){
+        background-color: white !important;
+
+    }
 
     .navbar-nav{
         @media (max-width: 768px ){
-            margin-top: 30px;
+            margin-top: 25px;
             background-color: white;
+            padding-block: 15px;
 
         }
 
@@ -153,7 +158,9 @@ $primary: #193A6A;
 
 
 
-
+.ant-table{
+    overflow-x: scroll !important;
+}
 .sidebar{
     background-color: #193A6A;
 }
@@ -164,6 +171,11 @@ $primary: #193A6A;
     background-position: bottom left;
     background-size: 100px;
 }
-
+.pet-form{
+    width: 75%;
+    @media (max-width: 768px ){
+        width: 100%;
+    }
+}
 
 }

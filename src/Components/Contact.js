@@ -12,23 +12,39 @@ const Contact = () => {
                 <Col xs={12} md={6} lg={6}>
                     <h3 className="fw-bold">Welcome To Our Family</h3>
                     <p className="custom-color">Cello is the first tech-integrated chain of modern clinics to cater to all your pet needs such as wellness, consultations, grooming and nutrition.</p>
-                    <Form>
-                        <Form.Group>
-                            <Form.Label className="form-label">Full Name</Form.Label>
-                            <Form.Control type="text" className="form-control mb-3 w-75" placeholder="Eg. Cello" />
-                        </Form.Group>
+
+                    <Row>
+                        <Col sm={10}>
+                            <Form.Group>
+                                <Form.Label className="form-label">Full Name</Form.Label>
+                                <Form.Control type="text" className="form-control mb-3" placeholder="Eg. Cello" />
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col sm={10}>
                         <Form.Group className="form-label">
                             <Form.Label className="form-label">Email</Form.Label>
-                            <Form.Control type="email" className="form-control mb-3 w-75" placeholder="example@email.com" />
+                            <Form.Control type="email" className="form-control mb-3" placeholder="example@email.com" />
                         </Form.Group>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col sm={10}>
                         <Form.Group className="form-label">
                             <Form.Label className="form-label">Phone</Form.Label>
-                            <Form.Control type="text" className="form-control mb-3 w-75" placeholder="Eg. 0545938774" />
+                            <Form.Control type="text" className="form-control mb-3" placeholder="Eg. 0545938774" />
                         </Form.Group>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
                         <Button variant="primary" className="py-2 px-4" type="submit">
                             CONTACT
                         </Button>
-                    </Form>
+                        </Col>
+                    </Row>
+
                 </Col>
 
                 <Col xs={12} md={6} lg={6}>
@@ -37,8 +53,6 @@ const Contact = () => {
                     </div>
                 </Col>
             </Row>
-
-
         </Container>
 
         </div>

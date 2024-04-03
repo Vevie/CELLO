@@ -32,7 +32,7 @@ export const NavBar = () => {
           <Navbar.Brand href="#home" className="mb-0 custom-color fw-bold fs-3">CELLO</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto w-100  align-items-center justify-content-end">
+            <Nav className="w-100  align-items-center justify-content-end">
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
               <Nav.Link href="#services" className={activeLink === 'services' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('services')}>Services</Nav.Link>
               <Nav.Link href="#contact" className={activeLink === 'contact ' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('contact')}>Contact</Nav.Link>
@@ -47,5 +47,6 @@ export const NavBar = () => {
     );
 
 }
+
 
 

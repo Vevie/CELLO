@@ -8,13 +8,16 @@ body {
 .App nav.navbar {
   height: 74px;
 }
-.App nav.navbar .scrolled {
-  padding: 0px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+@media (max-width: 768px) {
+  .App nav.navbar {
+    background-color: white !important;
+  }
 }
 @media (max-width: 768px) {
   .App nav.navbar .navbar-nav {
-    margin-top: 30px;
+    margin-top: 25px;
+    background-color: white;
+    padding-block: 15px;
   }
 }
 .App nav.navbar .navbar-nav .nav-link {
@@ -28,9 +31,6 @@ body {
 }
 .App nav.navbar .navbar-nav .nav-link:focus {
   border-bottom: 3px solid #193A6A;
-}
-.App nav.navbar .navbar-nav .dropdown-menu {
-  --bs-dropdown-link-active-bg: none !important;
 }
 .App .sidebar {
   background-color: #193A6A;
@@ -59,8 +59,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 74px;
-  height: 600px;
+  padding-top: 75px;
+  height: 650px;
 }
 @media (max-width: 768px) {
   .App .banner {
@@ -71,7 +71,9 @@ body {
   background-image: url(./assests/Grooming-service.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center !important;
   height: 620px;
+  width: 100%;
 }
 .App .signIn-container {
   height: 100vh;
@@ -108,6 +110,9 @@ body {
     left: 100%;
   }
 }
+.App .ant-table {
+  overflow-x: scroll !important;
+}
 .App .sidebar {
   background-color: #193A6A;
 }
@@ -116,4 +121,12 @@ body {
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 100px;
+}
+.App .pet-form {
+  width: 75%;
+}
+@media (max-width: 768px) {
+  .App .pet-form {
+    width: 100%;
+  }
 }/*# sourceMappingURL=App.css.map */
