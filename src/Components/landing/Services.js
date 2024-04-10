@@ -1,43 +1,43 @@
 import React from "react";
 import {Container, Row, Col} from "react-bootstrap"
-import Cards from "./Card"
+import Cards from "../Card"
 
 
 
 const cardDetails =[
     {
         id: 1,
-        image: require("../assests/opdcon.svg").default,
+        image: require("./../../assests/opdcon.svg").default,
         title: "Pet Consultation",
         text: "Get your pet checked by the best doctors in the city"
     },
     {
         id: 2,
-        image: require("../assests/pet-grom.svg").default,
+        image: require("./../../assests/pet-grom.svg").default,
         title: "Pet Grooming",
         text: "Get your pet checked by the best doctors in the city"
     },
     {
         id: 3,
-        image: require("../assests/surges.svg").default,
+        image: require("./../../assests/surges.svg").default,
         title: "Pet Nutrition",
         text: "Get your pet checked by the best doctors in the city"
     },
     {
         id: 4,
-        image: require("../assests/pet-food.svg").default,
+        image: require("./../../assests/pet-food.svg").default,
         title: "Pet Nutrition",
         text: "Get your pet checked by the best doctors in the city"
     },
     {
         id: 5,
-        image: require("../assests/emerg.svg").default,
+        image: require("./../../assests/emerg.svg").default,
         title: "Pet Nutrition",
         text: "Get your pet checked by the best doctors in the city"
     },
     {
         id: 6,
-        image: require("../assests/vaccine.svg").default,
+        image: require("./../../assests/vaccine.svg").default,
         title: "Pet Nutrition",
         text: "Get your pet checked by the best doctors in the city"
     }

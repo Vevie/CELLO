@@ -9,7 +9,7 @@ const SignInForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
-    const signInButton = document.getElementById('signInButton');
+    const [signInButtonText, setsignInButtonText] = useState('Sign In');
     const [messageApi, contextHolder] = message.useMessage();
 
     const handleUsernameChange = (event) => {
@@ -24,6 +24,10 @@ const SignInForm = () => {
     const handleSignIn = (event) => {
         event.preventDefault();
 
+            // Super Admin
+            const adminUsername = 'admin';
+            const adminPassword = 'password';
+
         if (username.trim() === '' || password.trim() === '') {
             messageApi.open({
                 type: 'error',
@@ -31,12 +35,22 @@ const SignInForm = () => {
               });
             return;
         }
-        signInButton.innerHTML = 'Signing In...';
 
-        setTimeout(() => {
-            history.push("/dashboard");
-        }, 1000);
+        if (username === adminUsername && password === adminPassword) {
+
+            setsignInButtonText('Signing In...');
+
+            setTimeout(() => {
+                history.push("/dashboard");
+            }, 1000);
+        } else {
+            messageApi.open({
+                type: 'error',
+                content: 'Invalid username or password. Please try again.',
+            });
+        }
     };
+
   
     
 
@@ -72,7 +86,7 @@ const SignInForm = () => {
                         className="btn btn-primary px-4 mb-4 w-100"
                         id="signInButton"
                     >
-                        Sign In
+                        {signInButtonText}
                     </button>
             </div>
         </Form>

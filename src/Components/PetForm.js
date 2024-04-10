@@ -1,9 +1,13 @@
 import React,{useEffect} from "react";
 import {Form, Row, Col, Button} from 'react-bootstrap';
 import { message } from 'antd';
+//import usePetStore from "../store/pet-store";
 
 
-const PetForm = ({ user, userId, updateUser, addUser, resetForm, onReset, formMode}) => {
+const PetForm = ({ user, updateUser, isLoading, addUser, resetForm, onReset, formMode}) => {
+
+    //const user = usePetStore((state) => state.user);
+
     const [petName, setPetName] = React.useState(user? user.petName : "");
     const [owner, setOwner] = React.useState(user? user.owner : "");
     const [email, setEmail] = React.useState(user? user.email : "");
@@ -23,26 +27,40 @@ const PetForm = ({ user, userId, updateUser, addUser, resetForm, onReset, formMo
         }
     }, [resetForm, onReset]);
 
+    const buttonDisabled = () => {
+        return !petName || !owner || !email || !phone || !doctor;
+    };
+
+
+    console.log(isLoading)
+    
+
     const handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault(); 
+        try{
 
-        if (!petName || !owner || !email || !phone || !doctor) {
-            messageApi.open({
-                type: 'error',
-                content: 'Error ! Please fill in all fields.',
-            });
-            return;
-        }
+            if (!petName || !owner || !email || !phone || !doctor) {
+                messageApi.open({
+                    type: 'error',
+                    content: 'Error ! Please fill in all fields.',
+                });
 
-        if (user) {
-            updateUser(user.id, { petName, owner, email, phone, doctor });
-        } else if (userId) { 
-            updateUser(userId, { petName, owner, email, phone, doctor }); 
-        } else {
-            addUser({ petName, owner, email, phone, doctor });
-      
+                return;
+            }
+            
+            if (user) {
+                updateUser(user.id, { petName, owner, email, phone, doctor });
+            } else {
+                addUser({ petName, owner, email, phone, doctor });
+            }
+            
+        } catch (error){
+            console.error('Error', error);
+           
+
         }
       };
+
 
 
     return(
@@ -64,7 +82,7 @@ const PetForm = ({ user, userId, updateUser, addUser, resetForm, onReset, formMo
                 <Row>
                     <Form.Group as={Col} controlId="formGridEmail">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="janedoe@cello.org" className="mb-3 rounded-pill" value={email} onChange={(event) => setEmail(event.target.value)}/>
+                        <Form.Control type="email" placeholder="janedoe@cello.org" className="mb-3 rounded-pil" value={email} onChange={(event) => setEmail(event.target.value)}/>
                     </Form.Group>
                 </Row>
                 <Row>
@@ -74,14 +92,27 @@ const PetForm = ({ user, userId, updateUser, addUser, resetForm, onReset, formMo
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Form.Group as={Col} controlId="formGridAssignedDoctor">
+                    <Form.Group as={Col} controlId="formGridAssignedDoctor" placeholder="Dr. White">
                         <Form.Label>Assigned Doctor</Form.Label>
-                        <Form.Control type="text" placeholder="Dr. Peter White" className="mb-3 rounded-pill" value={doctor} onChange={(event) => setDoctor(event.target.value)}/>
+                        <Form.Select placeholder="Dr. White" value={doctor} onChange={(event) => setDoctor(event.target.value)} className="mb-3 rounded-pill">
+                            <option value="" disabled>Select a doctor</option>
+                            <option value="Dr. John">Dr. John</option>
+                            <option value="Dr. Smith">Dr. Smith</option>
+                            <option value="Dr. Han">Dr. Han</option>
+                            <option value="Dr. Johnson">Dr. Johnson</option>
+                            <option value="Dr. Helen">Dr. Helen</option>
+                        </Form.Select>
                     </Form.Group>
                 </Row>
                 <div className="d-flex justify-content-end">
-                    <Button type="submit" className="btn btn-primary px-3 me-2" id="savenewUsersBtn" disabled={!petName || !owner || !email || !phone || !doctor}>Save</Button>
-
+                <Button
+                    type="submit"
+                    className="btn btn-primary px-3 me-2"
+                    id="saveUsersBtn"
+                    disabled={isLoading || buttonDisabled()}
+                >
+                {isLoading ? 'Saving...' : 'Save'}
+                </Button>
                 </div>
                     
             </Form>

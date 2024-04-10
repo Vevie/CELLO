@@ -8,13 +8,40 @@ import { useHistory } from "react-router-dom";
 
 const AddPage = () => {
   const [users, setUsers] = useState([]);
-  const [messageApi, contextHolder] = message.useMessage();
   const [editUser, setEditUser] = useState(null);
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false);
 
+  const checkEmail = async (email) => {
+    const response = await fetch(`http://localhost:3001/users?email=${email}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data.length > 0;
+  };
+  
+  const checkPhone = async (phone) => {
+    const response = await fetch(`http://localhost:3001/users?phone=${phone}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data.length > 0;
+  };
 
   const handleAddUser = async (userData) => {
-    try {
+    setIsLoading(true);
+
+    const emailExists = await checkEmail(userData.email);
+    const phoneExists = await checkPhone(userData.phone);
+    if (emailExists || phoneExists) {
+      setIsLoading(false);
+      message.error( 'Error! Email or phone number already exists.');
+      return;
+    }
+
+    try{
       const response = await fetch('http://localhost:3001/users', {
         method: 'POST',
         headers: {
@@ -25,13 +52,12 @@ const AddPage = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+
       const newUser = await response.json();
       setUsers([...users, newUser]);
+
       console.log('Pet added successfully:', newUser);
-      messageApi.open({
-        type: 'success',
-        content: 'Pet added successfully',
-      });
+      message.success('Pet added successfully');
       // Delay the redirect
       setTimeout(() => {
         history.push('/dashboard');
@@ -39,10 +65,7 @@ const AddPage = () => {
 
     } catch (error) {
       console.error('Error adding pet:', error);
-      messageApi.open({
-        type: 'error',
-        content: 'Error! Please fill all the fields',
-      });
+      message.error( 'Error! Please fill all the fields');
     }
 
     if (editUser) {
@@ -51,13 +74,12 @@ const AddPage = () => {
   };
   return (
     <>
-    {contextHolder}
       <Container fluid>
         <div className="bg-white shadow-sm py-4 px-0 px-md-4">
           <Container>
             <div className="d-flex align-items-center justify-content-between">
               <h5 className="mb-0 custom-color fw-semibold">Add Pet</h5>
-              <h6 className="text-center mb-0"><FaUser className="me-2 "/>Hi!, Dora</h6>
+              <h6 className="text-center mb-0"><FaUser className="me-2 "/>Hi!, Admin</h6>
             </div>
           </Container>
         </div>
@@ -65,6 +87,7 @@ const AddPage = () => {
         <div className="mt-5">
         <PetForm
           addUser={handleAddUser}
+          isLoading={isLoading}
           formMode="add"
         />
 

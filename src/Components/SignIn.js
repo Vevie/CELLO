@@ -1,5 +1,5 @@
 import React from 'react';
-import SignInForm from './SignInForm';
+import SignInForm from './signin/SignInForm';
 import {Row , Col, Image} from 'react-bootstrap';
 import curvedbg from '../assests/sider.png'
 import { Link } from "react-router-dom";

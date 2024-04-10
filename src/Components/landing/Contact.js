@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, Row, Col, Image} from "react-bootstrap"
 import {Form, Button} from "react-bootstrap"
-import groupdogs from "../assests/groupdogs.png"
+import groupdogs from "./../../assests/groupdogs.png"
 
 const Contact = () => {
 

@@ -12,7 +12,7 @@ const Content = () => {
         <Container>
           <div className="d-flex align-items-center justify-content-between">
             <h5 className="mb-0 custom-color fw-semibold">Dashboard</h5>
-            <h6 className="text-center mb-0"><FaUser className="me-2 "/>Hi!, Dora</h6>
+            <h6 className="text-center mb-0"><FaUser className="me-2 "/>Hi!, Admin</h6>
           </div>
         </Container>
         </div>
