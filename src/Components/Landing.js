@@ -1,10 +1,11 @@
 import React from "react";
-import {NavBar} from './Navbar' 
+import {NavBar} from './landing/Navbar' 
 import {Banner} from './landing/Banner' 
 import Services from  './landing/Services'
 import Contact from './landing/Contact'
 import Gromming from "./landing/Gromming";
-import Footer from './landing/Footer'
+import Footer from './landing/Footer';
+
 
 
 

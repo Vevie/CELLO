@@ -9,7 +9,7 @@ const SignInForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory();
-    const [signInButtonText, setsignInButtonText] = useState('Sign In');
+    const [signInButtonText, setsignInButtonText] = useState('Log In');
     const [messageApi, contextHolder] = message.useMessage();
 
     const handleUsernameChange = (event) => {
@@ -38,7 +38,7 @@ const SignInForm = () => {
 
         if (username === adminUsername && password === adminPassword) {
 
-            setsignInButtonText('Signing In...');
+            setsignInButtonText('Logging In...');
 
             setTimeout(() => {
                 history.push("/dashboard");

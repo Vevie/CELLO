@@ -2,6 +2,10 @@ import React from "react";
 import { Container } from "react-bootstrap"
 import {FaUser} from "react-icons/fa";
 import TableContent from "./Table";
+import EditPage from './../dashboard/EditPage';
+import AddPage from './../dashboard/AddPage';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
 
 
 const Content = () => {
@@ -18,7 +22,14 @@ const Content = () => {
         </div>
 
         <div className="mt-5 px-0 px-lg-3">
-        <TableContent />
+        
+          <Router>
+                  <Switch>
+                    <Route path="/dashboard" exact component={TableContent} />
+                    <Route path="/dashboard/add" component={AddPage} /> 
+                    <Route path="/dashboard/edit/:petId" component={EditPage} />
+                  </Switch>
+                </Router>
         </div>
       </Container>
       </>

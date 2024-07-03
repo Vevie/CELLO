@@ -1,32 +1,30 @@
-import React, { useState, useEffect}from 'react';
+import React, { useState, useEffect} from 'react';
 import {Button } from "react-bootstrap"
-import { Table, Space, message, Popconfirm  } from 'antd';
+import { Table, Space,message, Popconfirm  } from 'antd';
 import { FaEdit , FaRegTrashAlt} from "react-icons/fa";
 import { Link } from "react-router-dom";
-import usePetStore from "../store/pet-store";
+import usePetStore from "../../Store/pet-store";
 
 const { Column } = Table;
 
 const TableContent = () => {
-  const users = usePetStore((state) => state.users);
-  //const [users, setUsers] = useState([]);
+  const petList = usePetStore((state) => state.petList);
   const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
-    fetchUsers();
+    fetchPetList();
   }, []);
 
-  const fetchUsers = async () => {
+  const fetchPetList = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/users');
+      const response = await fetch('http://localhost:3001/petList');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      usePetStore.setState({ users: data });
-      //setUsers(data);
+      usePetStore.setState({ petList: data });
     } catch (error) {
       console.error('Error retrieving pet:', error);
     } finally {
@@ -34,42 +32,51 @@ const TableContent = () => {
     }
   };
 
-  const handleDelete = async (userId) => {
+
+  const handleDelete = async (petId) => {
     try {
-      const response = await fetch(`http://localhost:3001/users/${userId}`, {
+      const response = await fetch(`http://localhost:3001/petList/${petId}`, {
         method: 'DELETE'
       });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       usePetStore.setState((state) => ({
-        users: state.users.filter((user) => user.id !== userId),
+        petList: state.petList.filter((pet) => pet.id !== petId),
       }));
-     //setUsers(users.filter(user => user.id !== userId));
-      console.log('User deleted successfully!');
+      console.log('Pet deleted successfully!');
     } catch (error) {
       console.error('Error deleting pet:', error);
     }
   };
 
-  const confirmDelete = (userId) => {
-    handleDelete(userId);
+  const confirmDelete = (petId) => {
+    handleDelete(petId);
     message.success('Deleted successfully!');
   };
+
+
 
   return (
     <>
         <div className="d-flex justify-content-end">
-        <Link className="custom-color" to={`/dashboard/add`}>
-          <Button type="button" className="btn btn-primary p-1 px-3 mb-3">Add a New Pet</Button>
-        </Link>
+          <Link className="custom-color" to={`/dashboard/add`}>
+            <Button type="button" className="btn btn-primary p-1 px-3 mb-3">Add a New Pet</Button>
+          </Link>
         </div>
 
-      <Table dataSource={users} loading={loading}>
+      <Table dataSource={petList} loading={loading}>
+        <Column 
+          title="Image" 
+          dataIndex="imageFile" 
+            render={(imageFile) => (
+            <img src={imageFile} alt="" style={{ width: '40px',  height: '40px',border: '1px solid #193A6A', borderRadius: '100%'}}/>
+            )}
+          />
         <Column title="Pet Name" dataIndex="petName" key="petName" />
-        <Column title="Owner" dataIndex="owner" key="owner" />
-        <Column title="Email" dataIndex="email" key="email" />
-        <Column title="Phone" dataIndex="phone" key="phone" />
+        <Column title="Pet Age" dataIndex="petAge" key="petAge" />
+        <Column title="Price" dataIndex="price" key="price" />
+        <Column title="Status" dataIndex="status" key="status" />
         <Column title="Doctor" dataIndex="doctor" key="doctor" />
         <Column
           title="Action"
@@ -89,7 +96,6 @@ const TableContent = () => {
           )}
         />
       </Table>
-
     </>
   );
 };

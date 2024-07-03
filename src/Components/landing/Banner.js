@@ -1,6 +1,7 @@
 import React from "react";
-import { Container} from "react-bootstrap";
+import { Container, Button} from "react-bootstrap";
 import { FaPaw } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 
@@ -17,10 +18,12 @@ export const Banner = () => {
                 <p class="py-3">
                     Cello is the first tech-integrated chain of modern clinics to cater to all your pet needs.
                 </p>
-                <button type="button" className="btn btn-primary fw-semibold p-2 px-2 text-center align-items-center"> 
-                    <FaPaw  className="me-2 text-warning"/>
-                    Our Services
-                </button>
+                <Link to="/adoptPet">
+                    <Button className="btn btn-primary fw-semibold p-2 px-2 text-center align-items-center" role="button" >
+                        <FaPaw  className="me-2 text-warning"/>
+                        Adopt Pet
+                    </Button>
+                </Link>
             </div>
         </Container>
         </div>

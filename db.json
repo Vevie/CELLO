@@ -1,52 +1,177 @@
 {
-  "users": [
+  "petList": [
     {
       "petName": "Fluffy",
-      "owner": "Deloris",
-      "email": "deloris.doe@example.com",
-      "phone": "551-555-5556",
+      "petAge": "3 years",
+      "price": "850",
+      "status": "Available",
       "doctor": "Dr. Han",
+      "imageFile": "https://images.unsplash.com/photo-1652799528835-2b2e2bacc41f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "id": "1"
     },
     {
       "petName": "Daisy",
-      "owner": "Peter",
-      "email": "peter.doe@example.com",
-      "phone": "552-555-5556",
+      "petAge": "1 year",
+      "price": "2550",
+      "status": "Not Available",
       "doctor": "Dr. White",
+      "imageFile": "https://images.pexels.com/photos/7683643/pexels-photo-7683643.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "id": "2"
     },
     {
       "petName": "Jingles",
-      "owner": "Herbert Young",
-      "email": "herbrt.doe@example.com",
-      "phone": "553-555-5556",
+      "petAge": "7 months",
+      "price": "3000",
+      "status": "Available",
       "doctor": "Dr. Johnson",
+      "imageFile": "https://images.pexels.com/photos/1427447/pexels-photo-1427447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "id": "3"
     },
     {
-      "petName": "Halo Pagee",
-      "owner": "James Smith",
-      "email": "james.doe@example.com",
-      "phone": "554-555-5556",
+      "petName": "Halo",
+      "petAge": "2 weeks",
+      "price": "400",
+      "status": "Available",
       "doctor": "Dr. John",
-      "id": "4"
+      "imageFile": "https://images.unsplash.com/photo-1502899845910-573a1d1c390d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "id": "09cc"
     },
     {
-      "petName": "Sunny",
-      "owner": "John",
-      "email": "john.doe@example.com",
-      "phone": "555-555-5556",
+      "petName": "Sunny PPp",
+      "petAge": "1 month",
+      "imageFile": "https://images.pexels.com/photos/39388/chihuahua-dog-puppy-cute-39388.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "price": "2500",
+      "status": "Not Available",
       "doctor": "Dr. Johnson",
       "id": "5"
     },
     {
-      "petName": "Moon",
-      "owner": "Herbert",
-      "email": "sdfffgf@hh.com",
-      "phone": "34567876543",
+      "petName": "Daisy",
+      "petAge": "7 months",
+      "imageFile": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "price": "2000",
+      "status": "Available",
+      "doctor": "Dr. Nazir",
+      "id": "3054"
+    },
+    {
+      "petName": "Sky",
+      "petAge": "3 months",
+      "imageFile": "https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "price": "3000",
+      "status": "Available",
       "doctor": "Dr. John",
-      "id": "784d"
+      "id": "dae5"
+    }
+  ],
+  "applicantsList": [
+    {
+      "id": "1",
+      "name": "Akua",
+      "age": "38",
+      "email": "akua.doe@example.com",
+      "phone": "1-555-5556",
+      "reason": "Breeding",
+      "ownedPetBefore": "YES"
+    },
+    {
+      "id": "2",
+      "name": "Brittany",
+      "age": "25",
+      "email": "joe.doe@example.com",
+      "phone": "2-555-5556",
+      "reason": "Security",
+      "ownedPetBefore": "NO"
+    },
+    {
+      "id": "ea66",
+      "name": "James",
+      "age": "32",
+      "email": "sdfgff@hh.com",
+      "phone": "3456787654",
+      "reason": "Security",
+      "ownedPetBefore": "NO"
+    },
+    {
+      "id": "8bba",
+      "name": "Derrick",
+      "age": "32",
+      "email": "sdfgff@hh.com",
+      "phone": "34567876543",
+      "reason": "Companion for myself",
+      "ownedPetBefore": "NO"
+    },
+    {
+      "id": "6bd0",
+      "name": "Gwen",
+      "age": "20",
+      "email": "sdfgff@hh.com",
+      "phone": "3456787654",
+      "reason": "Security",
+      "ownedPetBefore": "YES"
+    },
+    {
+      "id": "9823",
+      "name": "Mark",
+      "age": "32",
+      "email": "sdfgff@hh.com",
+      "phone": "34567876543",
+      "reason": "Companion for myself",
+      "ownedPetBefore": "NO"
+    },
+    {
+      "id": "6583",
+      "name": "Moon",
+      "age": "32",
+      "email": "sdfgff@hh.co",
+      "phone": "345678",
+      "reason": "Companion for myself",
+      "ownedPetBefore": "YES"
+    },
+    {
+      "id": "32bd",
+      "name": "Bless",
+      "age": "21 years",
+      "email": "bless@hhh.com",
+      "phone": "0223300300",
+      "reason": "Companion for myself",
+      "ownedPetBefore": "YES"
+    },
+    {
+      "id": "e2ff",
+      "name": "Bless",
+      "age": "21 years",
+      "email": "bless@hhh.com",
+      "phone": "0223300300",
+      "reason": "Companion for myself",
+      "ownedPetBefore": "YES"
+    },
+    {
+      "id": "d150",
+      "name": "Bright ",
+      "age": "22 years",
+      "email": "kjgftgvfgb@fbgf.com",
+      "phone": "0004224567",
+      "reason": "Security",
+      "ownedPetBefore": "YES"
+    },
+    {
+      "id": "bb53",
+      "name": "Win",
+      "age": "32",
+      "email": "sertgftg@fvh.com",
+      "phone": "0003456787",
+      "reason": "Security",
+      "ownedPetBefore": "NO"
+    },
+    {
+      "id": "33f7",
+      "name": "Win",
+      "age": "9",
+      "email": "seftg@fvh.com",
+      "phone": "000345677",
+      "reason": "Companion for myself",
+      "ownedPetBefore": "YES"
     }
   ]
 }

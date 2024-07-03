@@ -55,12 +55,13 @@ nav.navbar{
     border: 2px solid #01adc7;
     background-color:  #1dacc296;
 }
+
 .btn-primary{
     border: 2px solid #193A6A !important;
     background-color:  #193A6A !important;
 }
 
-.card{
+.service-card{
     background-image: url(./assests/card-bg.png);
     background-size: cover;
     border: 1px solid #193A6A !important;
@@ -75,6 +76,23 @@ nav.navbar{
 }
 
 
+.adoptcard{
+    border: none;
+    height: 380px !important;
+
+
+    //&:active,&:hover{
+        //background-image: url(./assests/card-dark-bg.png);
+        //color: white;
+    //}
+
+
+
+
+}
+
+
+
 //BANNER
 .banner{
     background-image: url(./assests/banner.png);
@@ -82,11 +100,15 @@ nav.navbar{
     background-size: cover;
     background-position: center;
     padding-top: 75px;
-    height: 650px;  
+    height: 670px;  
 
     @media (max-width: 768px ){
         height: 500px; 
     }
+}
+.adoptpage{
+    background-color: #FDF1E9;
+    padding-top: 110px;
 }
 //BANNER
 
@@ -125,6 +147,12 @@ nav.navbar{
 //@import "../../node_modules/bootstrap/scss/bootstrap";
 
 $primary: #193A6A;
+.sidebar-item-bg{
+    background-color: rgba(255, 255, 255, 0.173);
+}
+.card-resize{
+    width: 85% !important;
+}
 
 .custom-color {
   color: $primary !important;
@@ -156,8 +184,16 @@ $primary: #193A6A;
         
     }
 
+.price-bg{
+    background-color: rgba(212, 212, 212, 0.59) !important;
+}
 
-
+.success{
+    background-color: #9df19d8b !important;
+}
+.danger{
+    background-color: #f19d9d8a !important;
+}
 .ant-table{
     overflow-x: scroll !important;
 }

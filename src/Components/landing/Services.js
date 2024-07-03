@@ -1,6 +1,6 @@
 import React from "react";
 import {Container, Row, Col} from "react-bootstrap"
-import Cards from "../Card"
+import Cards from "./Card"
 
 
 

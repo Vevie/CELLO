@@ -44,15 +44,19 @@ body {
   border: 2px solid #193A6A !important;
   background-color: #193A6A !important;
 }
-.App .card {
+.App .service-card {
   background-image: url(./assests/card-bg.png);
   background-size: cover;
   border: 1px solid #193A6A !important;
   height: 260px !important;
 }
-.App .card:active, .App .card:hover {
+.App .service-card:active, .App .service-card:hover {
   background-image: url(./assests/card-dark-bg.png);
   color: white;
+}
+.App .adoptcard {
+  border: none;
+  height: 380px !important;
 }
 .App .banner {
   background-image: url(./assests/banner.png);
@@ -60,12 +64,16 @@ body {
   background-size: cover;
   background-position: center;
   padding-top: 75px;
-  height: 650px;
+  height: 670px;
 }
 @media (max-width: 768px) {
   .App .banner {
     height: 500px;
   }
+}
+.App .adoptpage {
+  background-color: #FDF1E9;
+  padding-top: 110px;
 }
 .App .gromming-section {
   background-image: url(./assests/Grooming-service.png);
@@ -88,6 +96,12 @@ body {
   max-width: 1000px;
   overflow: hidden;
 }
+.App .sidebar-item-bg {
+  background-color: rgba(255, 255, 255, 0.173);
+}
+.App .card-resize {
+  width: 85% !important;
+}
 .App .custom-color {
   color: #193A6A !important;
 }
@@ -109,6 +123,15 @@ body {
   100% {
     left: 100%;
   }
+}
+.App .price-bg {
+  background-color: rgba(212, 212, 212, 0.59) !important;
+}
+.App .success {
+  background-color: rgba(157, 241, 157, 0.5450980392) !important;
+}
+.App .danger {
+  background-color: rgba(241, 157, 157, 0.5411764706) !important;
 }
 .App .ant-table {
   overflow-x: scroll !important;
